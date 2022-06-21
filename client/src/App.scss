@@ -1,0 +1,205 @@
+// font-family: 'Baloo 2', cursive;
+// font-family: 'Poppins', sans-serif;
+
+$light-blue: hsl(202, 68%, 48%);
+$light-grey: #7e878c;
+$dark-grey: #3f3f3f;
+$white: #ffffff;
+
+$font-text: 'Poppins', sans-serif;
+$font-heading: 'Baloo 2', cursive;
+$fsize: 16px;
+
+@mixin flexing($fd, $ai, $jc) {
+    display: flex;
+    flex-direction: $fd; //to set in one row for title class
+    align-items: $ai;
+    justify-content: $jc; //it will help to not get spaces and content will be placed in a space
+    
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    ::-webkit-scrollbar{
+        display: none;
+    }
+}
+
+main{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  //this will be in centre position of the screen
+    width: 80%;
+    overflow: hidden; //if something goes out of the width then it will be hidden
+    border-radius: 10px;
+
+    header{
+        background-color: $light-blue;
+        color: $white;
+        padding: 7px 20px; // 7px is top-bottom and 20px left-right
+        @include flexing(row, center, space-between);
+    
+    
+        div.title{
+            @include flexing(row, center, flex-start);
+            h1{
+                font-family: $font-heading;
+                font-size: 35px;
+                margin-left: 10px;
+
+           }
+         }
+         
+         button{
+            background-color: transparent;
+            border: none;
+            outline: none;
+            display: none;
+            
+        }
+
+    }
+
+    div.container{
+        background-color: $light-grey;
+        padding: 20px;
+        @include flexing(row, stretch , flex-start );
+
+
+        div.users-window{
+            width: 350px;
+            color: white;
+            background-color: $dark-grey;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-right: 20px;
+
+            div.users-head{
+                @include flexing(row, center , space-between );
+                margin-bottom: 15px;
+                h4{
+                    background-color: $light-grey;
+                    padding: 0 8px;
+                    border-radius: 50px;
+
+                }
+            }
+            div.users-list p{
+                font-size: 0.9rem;
+                letter-spacing: 0.5px;
+                font-weight: 600;
+                margin-bottom: 15px;
+            }
+        }
+
+        div.chat-window{
+            width: 100%;
+            background-color: $dark-grey;
+            border-radius: 10px;
+
+            div.chats{
+                height: 70vh;
+                padding: 20px;
+                overflow-y: auto;
+
+                div.users-join{
+                    font-size: 0.9rem;
+                    color: $dark-grey;
+                    background-color: $white;
+                    border-radius: 50px;
+                    width: max-content;
+                    padding: 7px 20px;
+                    margin: 0 auto;
+                    margin-bottom: 15px;
+                }
+
+                div.message{
+                    color: $dark-grey;
+                    background-color: $white;
+                    padding: 5px 15px;
+                    max-width: 400px;
+                    margin-bottom: 15px;
+                    border-radius: 10px 50px 50px 10px;
+                   
+
+                    p{
+                        font-size: $fsize;
+                    }
+                }
+
+                div.outgoing{
+                    margin-left: auto;
+                    border-radius: 50px 10px 10px 50px;
+                    color: $white;
+                    background-color: $light-blue;
+                    text-align: right;
+                }
+
+            }
+        }
+        div.user-input{
+            @include flexing(row, stretch , space-between );
+            padding: 20px;
+            input{
+                font-size: $fsize;
+                background-color: $white;
+                padding: 10px 20px;
+                outline: none;
+                border: none;
+                width: 100%;
+                border-radius: 50px 0px 0px 50px;
+            }
+            button{
+                font-size: $fsize;
+                font-weight: 600;
+                padding: 5px 15px;
+                outline: none;
+                border: none;
+                letter-spacing: 0.5px;
+                color: $white;
+                background-color: $light-blue;
+                border-radius: 0px 50px 50px 0px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px){
+    //if the screen size will be 900px then this code will be activated
+    main{
+        width: 95%;
+        header{
+            button{
+                display: block;
+            }
+        }
+        div.container{
+            position: relative;
+            div.users-window{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                border-radius: 0 0 10px 10px;
+                height: max-content;
+                z-index: 11;
+                box-shadow: 0 15px 20px -20px black;
+                padding-bottom: 0px;
+                display: none;
+            }
+            div.chat-window{
+                div.chats{
+                    div.message{
+                        max-width: 300px;
+                    }
+                }
+            }
+        }
+
+    }
+}
