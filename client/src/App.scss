@@ -15,63 +15,66 @@ $fsize: 16px;
     flex-direction: $fd; //to set in one row for title class
     align-items: $ai;
     justify-content: $jc; //it will help to not get spaces and content will be placed in a space
-    
+
 }
 
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    ::-webkit-scrollbar{
-        display: none;
+
+    ::-webkit-scrollbar {
+        overflow-y: hidden;
+        background: $light-grey;
     }
 }
 
-main{
+main {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);  //this will be in centre position of the screen
+    transform: translate(-50%, -50%); //this will be in centre position of the screen
     width: 80%;
     overflow: hidden; //if something goes out of the width then it will be hidden
     border-radius: 10px;
 
-    header{
+    header {
         background-color: $light-blue;
         color: $white;
         padding: 7px 20px; // 7px is top-bottom and 20px left-right
         @include flexing(row, center, space-between);
-    
-    
-        div.title{
+
+
+        div.title {
             @include flexing(row, center, flex-start);
-            h1{
+
+            h1 {
                 font-family: $font-heading;
                 font-size: 35px;
                 margin-left: 10px;
 
-           }
-         }
-         
-         button{
+            }
+        }
+
+        button {
             background-color: transparent;
             border: none;
             outline: none;
             display: none;
-            
+
         }
 
     }
 
-    div.container{
+    div.container {
         background-color: $light-grey;
         padding: 20px;
-        @include flexing(row, stretch , flex-start );
+        @include flexing(row, stretch, flex-start);
 
 
-        div.users-window{
+        div.users-window {
             width: 350px;
             color: white;
             background-color: $dark-grey;
@@ -79,17 +82,19 @@ main{
             border-radius: 10px;
             margin-right: 20px;
 
-            div.users-head{
-                @include flexing(row, center , space-between );
+            div.users-head {
+                @include flexing(row, center, space-between);
                 margin-bottom: 15px;
-                h4{
+
+                h4 {
                     background-color: $light-grey;
                     padding: 0 8px;
                     border-radius: 50px;
 
                 }
             }
-            div.users-list p{
+
+            div.users-list p {
                 font-size: 0.9rem;
                 letter-spacing: 0.5px;
                 font-weight: 600;
@@ -97,17 +102,17 @@ main{
             }
         }
 
-        div.chat-window{
+        div.chat-window {
             width: 100%;
             background-color: $dark-grey;
             border-radius: 10px;
 
-            div.chats{
+            div.chats {
                 height: 70vh;
                 padding: 20px;
                 overflow-y: auto;
 
-                div.users-join{
+                div.users-join {
                     font-size: 0.9rem;
                     color: $dark-grey;
                     background-color: $white;
@@ -118,21 +123,21 @@ main{
                     margin-bottom: 15px;
                 }
 
-                div.message{
+                div.message {
                     color: $dark-grey;
                     background-color: $white;
                     padding: 5px 15px;
                     max-width: 400px;
                     margin-bottom: 15px;
                     border-radius: 10px 50px 50px 10px;
-                   
 
-                    p{
+
+                    p {
                         font-size: $fsize;
                     }
                 }
 
-                div.outgoing{
+                div.outgoing {
                     margin-left: auto;
                     border-radius: 50px 10px 10px 50px;
                     color: $white;
@@ -142,10 +147,12 @@ main{
 
             }
         }
-        div.user-input{
-            @include flexing(row, stretch , space-between );
+
+        div.user-input {
+            @include flexing(row, stretch, space-between);
             padding: 20px;
-            input{
+
+            input {
                 font-size: $fsize;
                 background-color: $white;
                 padding: 10px 20px;
@@ -154,7 +161,8 @@ main{
                 width: 100%;
                 border-radius: 50px 0px 0px 50px;
             }
-            button{
+
+            button {
                 font-size: $fsize;
                 font-weight: 600;
                 padding: 5px 15px;
@@ -169,18 +177,22 @@ main{
     }
 }
 
-@media screen and (max-width: 900px){
+@media screen and (max-width: 900px) {
+
     //if the screen size will be 900px then this code will be activated
-    main{
+    main {
         width: 95%;
-        header{
-            button{
+
+        header {
+            button {
                 display: block;
             }
         }
-        div.container{
+
+        div.container {
             position: relative;
-            div.users-window{
+
+            div.users-window {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -192,9 +204,10 @@ main{
                 padding-bottom: 0px;
                 display: none;
             }
-            div.chat-window{
-                div.chats{
-                    div.message{
+
+            div.chat-window {
+                div.chats {
+                    div.message {
                         max-width: 300px;
                     }
                 }

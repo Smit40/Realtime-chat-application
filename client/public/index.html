@@ -1,42 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GO-CHAT</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Poppins&display=swap" >
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Poppins&display=swap">
     <link rel="stylesheet" href="App.css">
+    <style>
+        /* width */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 100%;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #7e878c;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #7e878c;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #7e878c;
+        }
+
+        main {
+            overflow-y: hidden;
+        }
+
+        .chats {
+            overflow-y: scroll;
+        }
+    </style>
 </head>
+
 <body>
     <main>
-        <header>
+        <header style="z-index: 1;">
             <div class="title">
                 <img src="MY Logo.png" width="35px">
                 <h1>GO-CHAT</h1>
             </div>
-            <button type="button">
-                <img src="menu.png" width="50px">
-            </button>
+            <diV>
+                <button type="button" style="margin-right:0; margin-left: auto; z-index: 3; display: flex;" onclick="">
+                    <img src="./menu.png" width="50px">
+                </button>
+            </diV>
         </header>
-      
-       
-         <div class="container">
+
+
+        <div class="container">
             <div class="users-window">
                 <div class="users-head">
                     <h3>people</h3>
                     <h4 class="users-count">1</h4>
                 </div>
                 <div class="users-list">
-                   
-                    
-                </div> 
+                </div>
 
             </div>
             <div class="chat-window">
                 <div class="chats">
-                    
                 </div>
                 <div class="user-input">
                     <input id="user-msg" type="text" placeholder="Type your message...">
@@ -47,15 +78,15 @@
         </div>
     </main>
     <script>//used for menu icon button for click functionality
-    var uwindow=document.querySelector('.users-window')
-    function show_hide(){
-        if(uwindow.styles.display=="none"){
-            uwindow.styles.display=="block";
+        var uwindow = document.querySelector('.users-window')
+        function show_hide() {
+            if (uwindow.styles.display == "none") {
+                uwindow.styles.display == "block";
+            }
+            else {
+                uwindow.styles.display == "none";
+            }
         }
-        else{
-            uwindow.styles.display=="none";
-        }
-    } 
 
     </script>
 
@@ -63,4 +94,5 @@
     <script src="/public/js/client.js"></script>
 
 </body>
+
 </html>
